@@ -1,20 +1,14 @@
-# Merge conflict resolution walkthrough
+# task-merge-conflict-demo
 
-This repository is a demo for resolving a merge conflict during a feature merge.
+This repository is a lightweight demo used for a short software workflow recording.
 
-## Task
-Merge the latest main branch into a feature branch and resolve the conflicting updates without losing intended logic.
+## Purpose
+This project exists to simulate a realistic engineering task in a simple, no-PII environment.
 
-## What to look for
-- two versions of the same configuration object
-- the same validation rule changed in different branches
-- one branch adds logging while the other adds stricter checks
+## Contents
+- A minimal code example or scenario
+- A small task objective
+- A guided workflow for a screen recording or review session
 
-## Suggested workflow
-1. Pull the latest main.
-2. Merge the feature branch into the working branch.
-3. Resolve the conflict in the business logic file.
-4. Verify the final output still matches the feature requirement.
-
-## Deliverable
-A clean merge resolution commit with a short explanation of the decision.
+## Notes
+The repo is intentionally small and focused so it can be used for short, practical walkthroughs without extra setup.
