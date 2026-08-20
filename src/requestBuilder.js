@@ -1,13 +1,13 @@
-import { buildRequestOptions } from './config.js';
+import { resolveDeliveryPolicy } from './config.js';
 
-export function createApiRequest(endpoint, overrides = {}) {
-  const options = buildRequestOptions(overrides);
+export function createWebhookRequest(endpoint, overrides = {}) {
+  const policy = resolveDeliveryPolicy(overrides);
   return {
     endpoint,
     method: 'GET',
-    timeoutMs: options.timeoutMs,
-    retries: options.retries,
-    featureFlag: options.featureFlag,
-    logLevel: options.logLevel
+    timeoutMs: policy.timeoutMs,
+    maxAttempts: policy.maxAttempts,
+    rollout: policy.rollout,
+    logLevel: policy.logLevel
   };
 }

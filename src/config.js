@@ -1,16 +1,16 @@
-export const defaults = {
+export const deliveryPolicy = {
   timeoutMs: 1500,
-  retries: 3,
-  featureFlag: false,
+  maxAttempts: 3,
+  rollout: 'standard',
   logLevel: 'info'
 };
 
-export function buildRequestOptions(overrides = {}) {
-  const settings = { ...defaults, ...overrides };
+export function resolveDeliveryPolicy(overrides = {}) {
+  const policy = { ...deliveryPolicy, ...overrides };
   return {
-    timeoutMs: settings.timeoutMs,
-    retries: settings.retries,
-    featureFlag: settings.featureFlag,
-    logLevel: settings.logLevel
+    timeoutMs: policy.timeoutMs,
+    maxAttempts: policy.maxAttempts,
+    rollout: policy.rollout,
+    logLevel: policy.logLevel
   };
 }

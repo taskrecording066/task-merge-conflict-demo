@@ -1,5 +1,5 @@
-# Merge conflict notes
+# Delivery policy notes
 
-Main changed `timeoutMs` from 1500 to 2000. Feature branch added `featureFlag` and changed retries to 5.
-
-Decision: keep the feature flag, keep the stricter retry value from the feature branch, and use the main branch timeout value unless there is a direct requirement to override it.
+The shared delivery policy controls timeout, attempt limits, rollout channel, and logging for
+outbound webhooks. Changes should preserve existing integrations unless the endpoint explicitly
+opts into a new policy.
