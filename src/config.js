@@ -1,9 +1,9 @@
 export const deliveryPolicy = {
-  timeoutMs: 2000,
-  maxAttempts: 4,
-  rollout: 'standard',
-  logLevel: 'warn',
-  backoffMs: 250
+  timeoutMs: 1200,
+  maxAttempts: 6,
+  rollout: 'priority',
+  logLevel: 'info',
+  priorityHeader: 'x-delivery-priority'
 };
 
 export function resolveDeliveryPolicy(overrides = {}) {
@@ -13,6 +13,7 @@ export function resolveDeliveryPolicy(overrides = {}) {
     maxAttempts: policy.maxAttempts,
     rollout: policy.rollout,
     logLevel: policy.logLevel,
-    backoffMs: policy.backoffMs
+    backoffMs: policy.backoffMs,
+    priorityHeader: policy.priorityHeader
   };
 }

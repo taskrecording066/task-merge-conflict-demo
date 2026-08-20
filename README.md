@@ -13,6 +13,6 @@ node src/index.js
 
 ## Request policy
 
-The default policy favors predictable delivery: requests time out after 2000 ms, retry four
-times with a 250 ms backoff, and include the current rollout state. Callers can override policy
-for a specific endpoint when an integration has a documented requirement.
+The priority policy favors urgent delivery: requests time out after 1200 ms, retry up to six
+times, and identify priority traffic with a delivery header. Callers can override policy for a
+specific endpoint when an integration has a documented requirement.

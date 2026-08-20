@@ -8,6 +8,7 @@ export function createWebhookRequest(endpoint, overrides = {}) {
     timeoutMs: policy.timeoutMs,
     maxAttempts: policy.maxAttempts,
     rollout: policy.rollout,
-    logLevel: policy.logLevel
+    logLevel: policy.logLevel,
+    priorityHeader: policy.priorityHeader
   };
 }
