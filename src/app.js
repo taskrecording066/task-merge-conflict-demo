@@ -1,13 +1,5 @@
-export const settings = {
-  retries: 3,
-  timeoutMs: 1500,
-  featureFlag: true,
-};
+import { createWebhookRequest } from './requestBuilder.js';
 
-export function buildRequest(endpoint, options = {}) {
-  return {
-    endpoint,
-    retries: options.retries ?? settings.retries,
-    timeoutMs: options.timeoutMs ?? settings.timeoutMs,
-  };
+export function prepareDelivery(endpoint, overrides = {}) {
+  return createWebhookRequest(endpoint, overrides);
 }

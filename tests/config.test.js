@@ -1,10 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildRequestOptions } from '../src/config.js';
+import { resolveDeliveryPolicy } from '../src/config.js';
 
-test('buildRequestOptions preserves defaults', () => {
-  const result = buildRequestOptions({ retries: 5 });
-  assert.equal(result.timeoutMs, 1500);
-  assert.equal(result.retries, 5);
-  assert.equal(result.featureFlag, false);
+test('resolveDeliveryPolicy preserves defaults', () => {
+  const result = resolveDeliveryPolicy({ maxAttempts: 5 });
+  assert.equal(result.timeoutMs, 1200);
+  assert.equal(result.maxAttempts, 5);
+  assert.equal(result.rollout, 'priority');
+  assert.equal(result.priorityHeader, 'x-delivery-priority');
 });

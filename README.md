@@ -1,14 +1,18 @@
-# task-merge-conflict-demo
+# Dispatch Gateway
 
-This repository is a lightweight demo used for a short software workflow recording.
+Dispatch Gateway builds consistent outbound webhook requests for the notification platform.
+It centralizes delivery policy so individual integrations do not need to know about retry,
+timeout, or rollout settings.
 
-## Purpose
-This project exists to simulate a realistic engineering task in a simple, no-PII environment.
+## Commands
 
-## Contents
-- A minimal code example or scenario
-- A small task objective
-- A guided workflow for a screen recording or review session
+```sh
+npm test
+node src/index.js
+```
 
-## Notes
-The repo is intentionally small and focused so it can be used for short, practical walkthroughs without extra setup.
+## Request policy
+
+The priority policy favors urgent delivery: requests time out after 1200 ms, retry up to six
+times, and identify priority traffic with a delivery header. Callers can override policy for a
+specific endpoint when an integration has a documented requirement.

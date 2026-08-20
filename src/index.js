@@ -1,8 +1,7 @@
-import { createApiRequest } from './requestBuilder.js';
+import { prepareDelivery } from './app.js';
 
-const request = createApiRequest('/api/health', {
-  retries: 5,
-  featureFlag: true
+const request = prepareDelivery('https://hooks.example.test/orders', {
+  rollout: 'priority'
 });
 
 console.log(request);
